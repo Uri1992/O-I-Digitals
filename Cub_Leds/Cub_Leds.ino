@@ -1,6 +1,6 @@
 /*************************************************************************
 **                                                                      **
-**                 Descripció programa                                  **
+**                 Cub de leds amb combinacions de llum                 **
 **                                                                      **
 *************************************************************************/
 
@@ -11,7 +11,7 @@
 
 const int col[9] = {12, 11, 10, 9, 8, 7, 6, 5, 4};
 const int pis[3] = {3, 2, 1};
-int temps = 100;
+const int temps = 100;
 
 //*******  Setup  ********************************************************
 void setup()
@@ -33,7 +33,54 @@ void setup()
 //******  Loop  **********************************************************
 void loop ()
 {
+  amunt();
+  amunt();
+  
+  tiraAmunt();
+  tiraAmunt();
+  
+  avall();
+  avall(); 
+  
+  tiraAvall();
+  tiraAvall();
+  
+  escala();
+  escala();
+  
+  cercle();
+  cercle();
+  
+  tornadoInvertit();
+  tornadoInvertit();
+  tornadoInvertit();
+  tornadoInvertit();
+  
   tornado();
+  tornado();
+  tornado();
+  tornado();
+  tornado();
+  tornado();
+  tornado();
+  tornado();
+  
+  diana();
+  diana();
+  
+  quadrat();
+  quadrat();
+  
+  creu();
+  creu();
+  
+  esquerra();
+  dreta();
+  esquerra();
+  dreta();
+  
+  intermitent();
+  intermitent();
 }
 
 void avall()
@@ -196,4 +243,178 @@ void quadrat()
     digitalWrite(col[i+6], LOW);
     digitalWrite(col[i+4], LOW);
     }  
+}
+
+void cercle()
+{
+   digitalWrite(pis[0], HIGH);
+   digitalWrite(pis[1], HIGH);
+   digitalWrite(pis[2], HIGH);
+   for (int i = 1; i < 9; i++)
+      {
+      digitalWrite(col[i], HIGH);
+      delay(temps);
+      }  
+      
+   for (int i = 1; i < 9; i++)
+      {
+      digitalWrite(col[i], LOW);
+      delay(temps);   
+      }  
+}
+
+void tornadoInvertit()
+{
+   digitalWrite(pis[0], HIGH);
+   digitalWrite(pis[1], HIGH);
+   digitalWrite(pis[2], HIGH);
+   for (int i = 1; i < 9; i++)
+      {
+      digitalWrite(col[i], LOW);
+      digitalWrite(col[0], HIGH);
+      delay(temps);
+      digitalWrite(col[i], HIGH);
+      }   
+}
+
+void esquerra()
+{
+   digitalWrite(pis[0], HIGH);
+   digitalWrite(pis[1], HIGH);
+   digitalWrite(pis[2], HIGH);
+   
+   digitalWrite(col[1], HIGH);
+   digitalWrite(col[2], HIGH);
+   digitalWrite(col[8], HIGH);
+   delay(temps);
+   digitalWrite(col[0], HIGH);
+   digitalWrite(col[3], HIGH);
+   digitalWrite(col[7], HIGH);
+   delay(temps);
+   digitalWrite(col[4], HIGH);
+   digitalWrite(col[5], HIGH);
+   digitalWrite(col[6], HIGH);
+   delay(temps);
+   digitalWrite(col[4], LOW);
+   digitalWrite(col[5], LOW);
+   digitalWrite(col[6], LOW);
+   delay(temps);
+   digitalWrite(col[0], LOW);
+   digitalWrite(col[3], LOW);
+   digitalWrite(col[7], LOW);
+   delay(temps);
+   digitalWrite(col[1], LOW);
+   digitalWrite(col[2], LOW);
+   digitalWrite(col[8], LOW);
+   delay(temps);
+}
+
+void dreta()
+{
+   digitalWrite(pis[0], HIGH);
+   digitalWrite(pis[1], HIGH);
+   digitalWrite(pis[2], HIGH);
+   
+   digitalWrite(col[4], HIGH);
+   digitalWrite(col[5], HIGH);
+   digitalWrite(col[6], HIGH);
+   delay(temps);
+   digitalWrite(col[0], HIGH);
+   digitalWrite(col[3], HIGH);
+   digitalWrite(col[7], HIGH);
+   delay(temps);
+   digitalWrite(col[1], HIGH);
+   digitalWrite(col[2], HIGH);
+   digitalWrite(col[8], HIGH);
+   delay(temps);
+   digitalWrite(col[1], LOW);
+   digitalWrite(col[2], LOW);
+   digitalWrite(col[8], LOW);
+   delay(temps);
+   digitalWrite(col[0], LOW);
+   digitalWrite(col[3], LOW);
+   digitalWrite(col[7], LOW);
+   delay(temps);
+   digitalWrite(col[4], LOW);
+   digitalWrite(col[5], LOW);
+   digitalWrite(col[6], LOW);
+   delay(temps);
+}
+
+void diana()
+{
+   digitalWrite(pis[0], HIGH);
+   digitalWrite(pis[1], HIGH);
+   digitalWrite(pis[2], HIGH);
+   
+   digitalWrite(col[0], HIGH);
+   delay(temps*5);
+   digitalWrite(col[0],LOW);
+   digitalWrite(col[1], HIGH);
+   digitalWrite(col[2], HIGH);
+   digitalWrite(col[3], HIGH);
+   digitalWrite(col[4], HIGH);
+   digitalWrite(col[5], HIGH);
+   digitalWrite(col[6], HIGH);
+   digitalWrite(col[7], HIGH);
+   digitalWrite(col[8], HIGH);
+   delay(temps*5);
+   digitalWrite(col[1], LOW);
+   digitalWrite(col[2], LOW);
+   digitalWrite(col[3], LOW);
+   digitalWrite(col[4], LOW);
+   digitalWrite(col[5], LOW);
+   digitalWrite(col[6], LOW);
+   digitalWrite(col[7], LOW);
+   digitalWrite(col[8], LOW);
+}
+
+void tiraAvall()
+{
+  digitalWrite(col[0], HIGH);
+  digitalWrite(col[1], HIGH);
+  digitalWrite(col[2], HIGH);
+  digitalWrite(col[3], HIGH);
+  digitalWrite(col[4], HIGH);
+  digitalWrite(col[5], HIGH);
+  digitalWrite(col[6], HIGH);
+  digitalWrite(col[7], HIGH);
+  digitalWrite(col[8], HIGH);
+  
+  for (int i = 0; i < 3; i++)
+    {
+    digitalWrite(pis[i], HIGH);
+    delay(temps);
+    }
+  
+  for (int i = 0 ; i < 3; i++)
+    {
+    digitalWrite(pis[i], LOW);
+    delay(temps);
+    }
+}
+
+void tiraAmunt()
+{
+  digitalWrite(col[0], HIGH);
+  digitalWrite(col[1], HIGH);
+  digitalWrite(col[2], HIGH);
+  digitalWrite(col[3], HIGH);
+  digitalWrite(col[4], HIGH);
+  digitalWrite(col[5], HIGH);
+  digitalWrite(col[6], HIGH);
+  digitalWrite(col[7], HIGH);
+  digitalWrite(col[8], HIGH);
+  
+  for (int i = 3; i > 0; i--)
+    {
+    digitalWrite(pis[i-1], HIGH);
+    delay(temps);
+    }
+  
+  for (int i = 3; i >= 0; i--)
+    {
+    digitalWrite(pis[i], LOW);
+    delay(temps);
+    }
 }
