@@ -250,6 +250,7 @@ void cercle()
    digitalWrite(pis[0], HIGH);
    digitalWrite(pis[1], HIGH);
    digitalWrite(pis[2], HIGH);
+   
    for (int i = 1; i < 9; i++)
       {
       digitalWrite(col[i], HIGH);
@@ -268,6 +269,7 @@ void tornadoInvertit()
    digitalWrite(pis[0], HIGH);
    digitalWrite(pis[1], HIGH);
    digitalWrite(pis[2], HIGH);
+   
    for (int i = 1; i < 9; i++)
       {
       digitalWrite(col[i], LOW);
